@@ -3,9 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Authorized } from "./components/auth/Authorized.jsx";
 import { Login } from "./components/auth/Login.jsx";
-import { Register } from "./components/auth/Register.jsx";
 import { InternalViews } from './components/InternalViews.jsx';
-
+import { HomePage } from './components/homepage/home.jsx';
 
 export const App = () => {
   
@@ -21,10 +20,11 @@ export const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<homePage currentUser={currentUser}/>} />
+        <Route path="/" element={<HomePage currentUser={currentUser}/>} />
 
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/articles" />
+        <Route path='/contact' />
         
         
 
