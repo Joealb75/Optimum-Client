@@ -21,7 +21,7 @@ export function getAllOfficeUsers() {
     })
 }
 
-export function getOfficeUserByID(currentUser) {
+export function getUserByID(currentUser) {
     
     const user = JSON.parse(localStorage.getItem('Optimum_User'));
     
@@ -33,7 +33,7 @@ export function getOfficeUserByID(currentUser) {
         return;
     }
 
-    return fetchWithResponse('', {
+    return fetchWithResponse('users', {
         method: 'GET',
         headers: {
             'Authorization': `Token ${token}`,

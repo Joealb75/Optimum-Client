@@ -1,9 +1,7 @@
-import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Authorized } from "./components/auth/Authorized.jsx";
 import { Login } from "./components/auth/Login.jsx";
-//import { InternalViews } from "./components/InternalViews.jsx";
 import { HomePage } from "./components/homepage/home.jsx";
 import { Register } from "./components/auth/Register.jsx";
 import { AdminDashboard } from "./components/officeViews/adminDashboard.jsx";
@@ -20,7 +18,7 @@ export const App = () => {
   //console.log(currentUser)
 
   return (
-    <>
+    <div className="w-full min-h-screen">
       <Routes>
         <Route path="/" element={<HomePage currentUser={currentUser} />} />
         <Route path="/office-login" element={<Login />} />
@@ -31,8 +29,11 @@ export const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/admin-dashboard" element={<AdminDashboard currentUser={currentUser}/>} />
         </Route>
-
       </Routes>
-    </>
+    </div>
   );
 };
+
+
+// :userId - pull a PARAMETER 
+// {currentUser} - pass a PROP
