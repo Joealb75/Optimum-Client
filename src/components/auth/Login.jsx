@@ -3,9 +3,8 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
-
 export const Login = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const existDialog = useRef();
   const navigate = useNavigate();
@@ -14,7 +13,7 @@ export const Login = () => {
     e.preventDefault();
     fetch(`http://localhost:8000/login`, {
       method: "POST",
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ username, password }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -47,14 +46,14 @@ export const Login = () => {
           <h1 className="text-4xl mt-7 mb-3">Optimum Health</h1>
           <h2 className="text-xl mb-10">Please sign in</h2>
           <fieldset className="mb-4">
-            <label htmlFor="inputEmail"> Email address </label>
+            <label htmlFor="inputUsername"> Username </label>
             <input
-              type="email"
-              id="inputEmail"
-              value={email}
-              onChange={(evt) => setEmail(evt.target.value)}
+              type="text"
+              id="inputUsername"
+              value={username}
+              onChange={(evt) => setUsername(evt.target.value)}
               className="form-control"
-              placeholder="Email address"
+              placeholder="Username"
               required
               autoFocus
             />
@@ -93,3 +92,4 @@ export const Login = () => {
     </main>
   );
 };
+

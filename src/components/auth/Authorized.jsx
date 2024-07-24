@@ -1,17 +1,13 @@
-import { Navigate, useLocation } from "react-router-dom"
+import { Navigate, Outlet } from "react-router-dom"
 
-// We can access child components the same way we access props. Child components are passed to our props as a key/value pair where
-// children is the key.
-
-export const Authorized = ({ children }) => {
-  let location = useLocation()
-
-  // Check if user is logged in. If they are, render the CHILD components (in this case, the ApplicationViews component)
+export const Authorized = () => {
   if (localStorage.getItem("Optimum_User")) {
-    return children
+    return <>
+      {/* <NavBar /> */}
+      <main className="p-4">
+        <Outlet />
+      </main>
+    </>
   }
-  // If the user is NOT logged in, redirect them to the login page using the Navigate component from react-router-dom
-  else {
-    return <Navigate to={`/`} state={{ from: location }} replace />
-  }
+  return <Navigate to='/' replace />
 }
