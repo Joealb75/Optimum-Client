@@ -154,13 +154,12 @@ export const HomePage = () => {
                 text will help users determine if they need a consultation based
                 on their symptoms or concerns. Additional information can be
                 added here to provide more guidance.
-                <ul>
+              </p>
+              <ul>
                     <li className="text-white">New item</li>
                     <li>New item</li>
                     <li>New item</li>
-                </ul>
-                
-              </p>
+              </ul>
             </div>
             <ConsultationForm />
           </div>
