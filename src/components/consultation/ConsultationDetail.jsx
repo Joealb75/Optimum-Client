@@ -10,8 +10,9 @@ import { getAllUsers } from "../../data-services/user_data.js";
 export const ConsultationDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { data: consultation, isLoading, error } = UseGetConsultationById(id);
+
   const { currentUser } = useCurrentUser();
+  const { data: consultation, isLoading, error } = UseGetConsultationById(id);
   const { data: officeUser } = UseGetOfficeUserById(currentUser);
 
   const [isEditing, setIsEditing] = useState(false);
@@ -77,14 +78,17 @@ export const ConsultationDetail = () => {
   ];
 
   const statusLabelClass = statusOptions.find(option => option.value === editableConsultation?.status)?.color;
+   // find the correct status object based on the consultation.status and apply the correct color to the <span> tag
 
   return (
     <>
       <OfficeNavBar />
       <div className="p-4 max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-6">Consultation Detail</h1>
+
         {editableConsultation ? (
           <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+
             <div className="mb-4">
               <label className="block text-lg font-semibold">Date:</label>
               {isEditing ? (
@@ -101,6 +105,7 @@ export const ConsultationDetail = () => {
                 </p>
               )}
             </div>
+
             <div className="mb-4">
               <label className="block text-lg font-semibold">Status:</label>
               {isEditing ? (
@@ -122,6 +127,7 @@ export const ConsultationDetail = () => {
                 </span>
               )}
             </div>
+
             <div className="mb-4">
               <label className="block text-lg font-semibold">Full Name:</label>
               {isEditing ? (
@@ -136,6 +142,7 @@ export const ConsultationDetail = () => {
                 <p className="text-lg">{editableConsultation.full_name}</p>
               )}
             </div>
+
             <div className="mb-4">
               <label className="block text-lg font-semibold">Email:</label>
               {isEditing ? (
@@ -150,6 +157,7 @@ export const ConsultationDetail = () => {
                 <p className="text-lg">{editableConsultation.email}</p>
               )}
             </div>
+
             <div className="mb-4">
               <label className="block text-lg font-semibold">Cell:</label>
               {isEditing ? (
@@ -164,6 +172,7 @@ export const ConsultationDetail = () => {
                 <p className="text-lg">{editableConsultation.phone_number}</p>
               )}
             </div>
+
             <div className="mb-4">
               <label className="block text-lg font-semibold">Comment:</label>
               {isEditing ? (
@@ -177,6 +186,7 @@ export const ConsultationDetail = () => {
                 <p className="text-lg">{editableConsultation.comment}</p>
               )}
             </div>
+
             <div>
               <label className="block text-lg font-semibold">Assigned:</label>
               {isEditing && officeUser?.isAdmin ? (
@@ -198,6 +208,7 @@ export const ConsultationDetail = () => {
                 </p>
               )}
             </div>
+
             <div className="mt-6 flex space-x-4">
               <button
                 onClick={handleEditToggle}
@@ -214,6 +225,7 @@ export const ConsultationDetail = () => {
                 </button>
               )}
             </div>
+            
           </div>
         ) : (
           <p>No consultation found</p>

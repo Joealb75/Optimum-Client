@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { SiteNavBar } from "./siteNavBar.jsx";
-import { ConsultationForm } from "../consulataion/ConsultationForm.jsx";
+import { ConsultationForm } from "../consultation/ConsultationForm.jsx";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 import men1 from "/src/assets/homeSlideShow/men1.jpeg";

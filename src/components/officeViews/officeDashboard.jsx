@@ -3,7 +3,7 @@ import { OfficeNavBar } from "./officeNavBar.jsx";
 import { useCurrentUser } from "../../TSQ_hooks/useCurrentUser.js";
 import { UseAllConsultations } from "../../TSQ_hooks/useAllConsultations.js";
 import { UseGetOfficeUserById } from "../../TSQ_hooks/useGetOfficeUserById.js";
-import { ConsultationCard } from "../consulataion/ConsultationCard.jsx";
+import { ConsultationCard } from "../consultation/ConsultationCard.jsx";
 import { getAllUsers } from "../../data-services/user_data.js";
 
 export const OfficeDashboard = () => {

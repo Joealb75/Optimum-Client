@@ -5,7 +5,7 @@ import { HomePage } from "./components/homepage/home.jsx";
 import { Register } from "./components/auth/Register.jsx";
 import { OfficeDashboard } from "./components/officeViews/officeDashboard.jsx";
 import { useCurrentUser } from "./TSQ_hooks/useCurrentUser.js";
-import { ConsultationDetail } from "./components/consulataion/ConsultationDetail.jsx";
+import { ConsultationDetail } from "./components/consultation/ConsultationDetail.jsx";
 export const App = () => {
 
   const { currentUser} = useCurrentUser();
