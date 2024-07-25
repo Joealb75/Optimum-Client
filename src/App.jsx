@@ -1,21 +1,14 @@
 import { Route, Routes } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { Authorized } from "./components/auth/Authorized.jsx";
 import { Login } from "./components/auth/Login.jsx";
 import { HomePage } from "./components/homepage/home.jsx";
 import { Register } from "./components/auth/Register.jsx";
-import { AdminDashboard } from "./components/officeViews/adminDashboard.jsx";
-
+import { OfficeDashboard } from "./components/officeViews/officeDashboard.jsx";
+import { useCurrentUser } from "./TSQ_hooks/useCurrentUser.js";
+import { ConsultationDetail } from "./components/consulataion/ConsultationDetail.jsx";
 export const App = () => {
-  const [currentUser, setCurrentUser] = useState({});
 
-  useEffect(() => {
-    const userFromStorage = JSON.parse(localStorage.getItem("Optimum_User"));
-    if (userFromStorage && userFromStorage.id) {
-      setCurrentUser({ id: userFromStorage.id }); // Ensure currentUser is always an object with an id property
-    }
-  }, []);
-  //console.log(currentUser)
+  const { currentUser} = useCurrentUser();
 
   return (
     <div className="w-full min-h-screen">
@@ -27,7 +20,8 @@ export const App = () => {
 
         <Route element={<Authorized currentUser={currentUser}/>}>
           <Route path="/register" element={<Register />} />
-          <Route path="/admin-dashboard" element={<AdminDashboard currentUser={currentUser}/>} />
+          <Route path="/office-dashboard" element={<OfficeDashboard currentUser={currentUser}/>} />
+          <Route path="/consultation/:id" element={< ConsultationDetail />} />
         </Route>
       </Routes>
     </div>
