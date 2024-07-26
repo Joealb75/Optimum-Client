@@ -10,6 +10,9 @@ import { PrimaryCare } from "./components/services/primaryCare.jsx";
 import { ErectileDysfunction } from "./components/services/ed.jsx";
 import { TestosteroneReplacement } from "./components/services/trt.jsx";
 import { SiteFooter } from "./components/homepage/siteFooter.jsx";
+import { ArticleHome } from "./components/articles/articlesHome.jsx";
+import { ContactHome } from "./components/contact/contactHome.jsx";
+
 
 export const App = () => {
 
@@ -21,8 +24,8 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<HomePage currentUser={currentUser} />} />
           <Route path="/office-login" element={<Login />} />
-          <Route path="/articles" />
-          <Route path="/contact" />
+          <Route path="/articles" element={<ArticleHome />}/>
+          <Route path="/contact-us" element={<ContactHome />}/>
           <Route path="/services/primary-care" element={<PrimaryCare />} />
           <Route path="/services/testosterone-replacement" element={<TestosteroneReplacement />} />
           <Route path="/services/erectile-dysfunction" element={<ErectileDysfunction />} />

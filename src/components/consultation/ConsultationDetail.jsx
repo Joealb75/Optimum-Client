@@ -42,6 +42,7 @@ export const ConsultationDetail = () => {
       try {
         await updateConsultation(id, editableConsultation);
         setIsEditing(false);
+        navigate("/office-dashboard");
       } catch (error) {
         console.error('Failed to update consultation:', error);
       }
