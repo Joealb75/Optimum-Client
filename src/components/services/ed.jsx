@@ -3,12 +3,14 @@ import { SiteNavBar } from "../homepage/siteNavBar.jsx";
 import { ClientTestimonials } from "../homepage/ClientTestimonials.jsx";
 import { ConsultationForm } from "../consultation/ConsultationForm.jsx";
 
+import general_img from '/src/assets/services/ED/ED.svg';
+
 export const ErectileDysfunction = () => {
   return (
     <>
       <SiteNavBar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="hero-image mb-8" style={{ backgroundImage: 'url(https://www.oakwoodhealth.com/wp-content/uploads/2021/08/ED-Symptoms-Blog-Post-Copy-1536x864.png)', height: '400px', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="hero-image mb-8" style={{ backgroundImage: `url(${general_img})`, height: '400px', backgroundSize: 'cover', backgroundPosition: 'center' }}>
           
         </div>
         <div className="container mx-auto p-4">

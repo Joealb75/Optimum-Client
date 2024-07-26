@@ -15,7 +15,7 @@ export const SiteFooter = () => {
             <a href="/" className="text-gray-400 hover:text-white">
               Home
             </a>
-            <a href="/contact" className="text-gray-400 hover:text-white">
+            <a href="/contact-us" className="text-gray-400 hover:text-white">
               Contact
             </a>
             <a href="/articles" className="text-gray-400 hover:text-white">

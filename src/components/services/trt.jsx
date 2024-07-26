@@ -3,13 +3,15 @@ import { SiteNavBar } from "../homepage/siteNavBar.jsx";
 import { ClientTestimonials } from "../homepage/ClientTestimonials.jsx";
 import { ConsultationForm } from "../consultation/ConsultationForm.jsx";
 
+import general_img from '/src/assets/services/TRT/TRT.svg';
+
 export const TestosteroneReplacement = () => {
   return (
     <>
       <SiteNavBar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="hero-image mb-8" style={{ backgroundImage: 'url(https://luxuramedspa.com/wp-content/uploads/elementor/thumbs/Testosterone-Replacement-Therapy-Frankfort-Lakeview-Chicago-qbskmi7nhxisd2vyal2wuy52tybdfxiiopiwwy4w3s.jpg)', height: '400px', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-          {/* Add your hero image styling here */}
+        <div className="hero-image mb-8" style={{ backgroundImage: `url(${general_img})`, height: '400px', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+
         </div>
         <div className="container mx-auto p-4">
           <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">About Testosterone Replacement Therapy</h1>

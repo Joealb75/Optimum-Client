@@ -195,6 +195,17 @@ export const HomePage = () => {
             </div>
           </div>
         </section>
+        <section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3215.2454490739824!2d-86.60186492291905!3d36.30635429537983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864474a0c9f2313%3A0x9ddba24edfc37ae0!2sOptimum%20Mens%20Health!5e0!3m2!1sen!2sus!4v1721985584826!5m2!1sen!2sus"
+            width="100%"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </section>
       </div>
     </>
   );

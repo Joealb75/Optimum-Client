@@ -3,12 +3,14 @@ import { SiteNavBar } from "../homepage/siteNavBar.jsx";
 import { ClientTestimonials } from "../homepage/ClientTestimonials.jsx";
 import { ConsultationForm } from "../consultation/ConsultationForm.jsx";
 
+import general_img from '/src/assets/services/PrimaryCare/Primary_Care.svg';
+
 export const PrimaryCare = () => {
   return (
     <>
       <SiteNavBar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="hero-image mb-8" style={{ backgroundImage: 'url(https://storage.googleapis.com/treatspace-prod-media/pracimg/u-70/shutterstock_1949235007_8vfjNbv.jpeg)', height: '400px', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="hero-image mb-8" style={{ backgroundImage: `url(${general_img})`, height: '400px', backgroundSize: 'cover', backgroundPosition: 'center' }}>
           
         </div>
         <div className="container mx-auto p-4">
