@@ -65,7 +65,7 @@ export const HomePage = () => {
   return (
     <>
       <SiteNavBar />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col lg:flex-row">
           <section className="lg:w-1/2 lg:pr-4 mb-8 lg:mb-0">
             <div className="text-center lg:text-left">
@@ -103,7 +103,7 @@ export const HomePage = () => {
         </div>
 
         {/* Meet Your Team Section */}
-        <section className="py-16">
+        <section className="py-8">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-extrabold text-gray-900">
               Meet Your Team
@@ -145,48 +145,32 @@ export const HomePage = () => {
           </div>
         </section>
 
-        <section className="py-4">
-          <div className="flex items-stretch">
-            <div className="w-full max-w-lg p-8 bg-gray-900 text-white rounded-lg mr-8 flex-shrink-0">
-              <h2 className="text-2xl mb-6">Do You Need a Consultation?</h2>
-              <p className="text-lg">
-                Placeholder text for the consultation information section. This
-                text will help users determine if they need a consultation based
-                on their symptoms or concerns. Additional information can be
-                added here to provide more guidance.
-              </p>
-              <ul>
-                    <li className="text-white">New item</li>
-                    <li>New item</li>
-                    <li>New item</li>
-              </ul>
-            </div>
-            <ConsultationForm />
-          </div>
+        <section>
+          <ConsultationForm />
         </section>
 
         {/* Come Visit Us Section */}
-        <section className="py-16">
+        <section className="py-4">
           <div className="flex flex-col lg:flex-row">
             {/* Contact Information */}
-            <div className="lg:w-1/2 lg:pr-8 mb-8 lg:mb-0 bg-gray-100 p-6 rounded-lg">
+            <div className="lg:w-1/2 lg:pr-4 mb-4 lg:mb-0 bg-gray-100 p-4 rounded-lg">
               <div className="text-left">
-                <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
+                <h2 className="text-2xl font-extrabold text-gray-900 mb-2">
                   Come Visit Us
                 </h2>
-                <p className="text-lg text-gray-700 flex items-center mb-2">
+                <p className="text-sm text-gray-700 flex items-center mb-1">
                   <FaMapMarkerAlt className="mr-2 text-gray-600" />
                   125 Maple Row Blvd, Ste. 100
                   <br />
                   Hendersonville, TN 37075
                 </p>
-                <p className="text-lg text-gray-700 flex items-center mb-2">
+                <p className="text-sm text-gray-700 flex items-center mb-1">
                   <FaPhoneAlt className="mr-2 text-gray-600" />
                   <a href="tel:615-991-3158" className="hover:text-[#228B22]">
                     615-991-3158
                   </a>
                 </p>
-                <p className="text-lg text-gray-700 flex items-center">
+                <p className="text-sm text-gray-700 flex items-center">
                   <FaEnvelope className="mr-2 text-gray-600" />
                   <a
                     href="mailto:optimummenshealth@gmail.com"
@@ -199,15 +183,15 @@ export const HomePage = () => {
             </div>
 
             {/* Business Hours */}
-            <div className="lg:w-1/2 bg-gray-900 text-white p-8 rounded-lg">
-              <h3 className="text-2xl font-extrabold mb-4">Business Hours</h3>
-              <p className="text-lg mb-2">Monday: Closed</p>
-              <p className="text-lg mb-2">Tuesday: 7 AM - 6 PM</p>
-              <p className="text-lg mb-2">Wednesday: 7 AM - 6 PM</p>
-              <p className="text-lg mb-2">Thursday: 7 AM - 6 PM</p>
-              <p className="text-lg mb-2">Friday: 7 AM - 6 PM</p>
-              <p className="text-lg mb-2">Saturday: Closed</p>
-              <p className="text-lg mb-2">Sunday: Closed</p>
+            <div className="lg:w-1/2 bg-gray-900 text-white p-4 rounded-lg">
+              <h3 className="text-xl font-extrabold mb-2">Business Hours</h3>
+              <p className="text-sm mb-1">Monday: Closed</p>
+              <p className="text-sm mb-1">Tuesday: 7 AM - 6 PM</p>
+              <p className="text-sm mb-1">Wednesday: 7 AM - 6 PM</p>
+              <p className="text-sm mb-1">Thursday: 7 AM - 6 PM</p>
+              <p className="text-sm mb-1">Friday: 7 AM - 6 PM</p>
+              <p className="text-sm mb-1">Saturday: Closed</p>
+              <p className="text-sm mb-1">Sunday: Closed</p>
             </div>
           </div>
         </section>

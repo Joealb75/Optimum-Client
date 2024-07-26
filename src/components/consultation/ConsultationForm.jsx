@@ -77,72 +77,89 @@ export const ConsultationForm = () => {
   };
 
   return (
-    <div className="w-full max-w-lg ml-auto">
-      {!submitted ? (
-        <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md">
-          <h2 className="text-2xl mb-6">Schedule a Consultation</h2>
-          <div className="mb-4">
-            <label className="block text-gray-700">Full Name</label>
-            <input
-              type="text"
-              name="full_name"
-              value={formData.full_name}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
-              required
-            />
+    <div className="bg-gray-900 text-white py-4 px-8">
+      <div className="container mx-auto flex flex-col lg:flex-row items-center lg:items-start lg:justify-between">
+        <div className="lg:w-1/2 mb-8 lg:mb-0">
+          <div className="flex justify-center lg:justify-start">
+            <div>
+              <h2 className="text-2xl mb-6">Need a Consultation?</h2>
+              <p className="text-lg mb-4">
+                There are many reasons why you might need a consultation. Here are a few examples:
+              </p>
+              <ul className="list-disc list-inside">
+                <li>You have persistent symptoms that are affecting your daily life.</li>
+                <li>You need a professional opinion on a health concern.</li>
+                <li>You are looking for personalized medical advice.</li>
+                <li>You want to improve your overall health and well-being.</li>
+              </ul>
+            </div>
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700">Email Address</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
-              required
-            />
-            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700">Phone Number</label>
-            <input
-              type="tel"
-              name="phone_number"
-              value={formData.phone_number}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
-              required
-            />
-            {errors.phone_number && <p className="text-red-500 text-sm">{errors.phone_number}</p>}
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700">Comment</label>
-            <textarea
-              name="comment"
-              value={formData.comment}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
-              rows="4"
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="bg-gray-900 text-white px-4 py-2 rounded hover:bg-[#228B22]"
-          >
-            Submit
-          </button>
-        </form>
-      ) : ( // if setSubmitted is True display this message 
-        <div className="bg-white p-8 rounded shadow-md">
-          <h2 className="text-2xl">Your Consultation Request has been received.</h2>
-          <br/>
-          <p>One of our Providers will contact you at their earliest convenience.</p>
         </div>
-      )}
+        <div className="lg:w-1/2">
+          {!submitted ? (
+            <form onSubmit={handleSubmit} className="bg-white text-gray-900 p-8 rounded shadow-md">
+              <h2 className="text-2xl mb-6">Schedule a Consultation</h2>
+              <div className="mb-4">
+                <label className="block text-gray-700">Full Name</label>
+                <input
+                  type="text"
+                  name="full_name"
+                  value={formData.full_name}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border rounded"
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700">Email Address</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border rounded"
+                  required
+                />
+                {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700">Phone Number</label>
+                <input
+                  type="tel"
+                  name="phone_number"
+                  value={formData.phone_number}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border rounded"
+                  required
+                />
+                {errors.phone_number && <p className="text-red-500 text-sm">{errors.phone_number}</p>}
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700">Comment</label>
+                <textarea
+                  name="comment"
+                  value={formData.comment}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border rounded"
+                  rows="4"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                className="bg-gray-900 text-white px-4 py-2 rounded hover:bg-[#228B22]"
+              >
+                Submit
+              </button>
+            </form>
+          ) : (
+            <div className="bg-white text-gray-900 p-8 rounded shadow-md">
+              <h2 className="text-2xl">Your Consultation Request has been received.</h2>
+              <br />
+              <p>One of our Providers will contact you at their earliest convenience.</p>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
-
-
-
