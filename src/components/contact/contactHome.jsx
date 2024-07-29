@@ -9,12 +9,26 @@ export const ContactHome = () => {
   return (
     <>
       <SiteNavBar />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
         <div className="hero-image mb-8" style={{ backgroundImage: `url(${general_img})`, height: '400px', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         </div>
 
-        <section >
-          <h1 className="text-4xl font-extrabold text-gray-900 mb-2 py-8">About Us</h1>
+        <section>
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-8 py-2">About Us</h1>
+          <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+            <p className="text-lg text-gray-700 mb-4">
+              Welcome to Optimum Men's Health, where we believe in empowering men to lead their healthiest and most fulfilling lives. Our mission is to provide comprehensive, personalized medical care tailored to each individual's needs.
+            </p>
+            <p className="text-lg text-gray-700 mb-4">
+              At Optimum Men's Health, our team of dedicated professionals is committed to offering top-notch services that encompass all aspects of men's health. From routine check-ups and preventative care to specialized treatments and wellness programs, we are here to support you every step of the way.
+            </p>
+            <p className="text-lg text-gray-700 mb-4">
+              Our state-of-the-art facility in Hendersonville, TN, is equipped with the latest medical technology and a comfortable environment to ensure you receive the best possible care. We strive to build lasting relationships with our patients, founded on trust, respect, and a shared commitment to health and wellness.
+            </p>
+            <p className="text-lg text-gray-700 mb-4">
+              Join us at Optimum Men's Health and take the first step towards a healthier, happier you. We look forward to being your partner in health and wellness.
+            </p>
+          </div>
         </section>
 
         <section className="py-4">

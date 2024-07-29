@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { Authorized } from "./components/auth/Authorized.jsx";
 import { Login } from "./components/auth/Login.jsx";
 import { HomePage } from "./components/homepage/home.jsx";
-import { Register } from "./components/auth/Register.jsx";
+// import { Register } from "./components/auth/Register.jsx";
 import { OfficeDashboard } from "./components/officeViews/officeDashboard.jsx";
 import { useCurrentUser } from "./TSQ_hooks/useCurrentUser.js";
 import { ConsultationDetail } from "./components/consultation/ConsultationDetail.jsx";
@@ -34,7 +34,7 @@ export const App = () => {
           <Route path="/services/erectile-dysfunction" element={<ErectileDysfunction />} />
 
           <Route element={<Authorized currentUser={currentUser}/>}>
-            <Route path="/register" element={<Register />} />
+            {/* <Route path="/register" element={<Register />} /> */}
             <Route path="/office-dashboard" element={<OfficeDashboard currentUser={currentUser}/>} />
             <Route path="/consultation/:id" element={< ConsultationDetail />} />
             <Route path="/consultation-all" element={<AllConsultations />} />

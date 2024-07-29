@@ -5,6 +5,7 @@ import { useCurrentUser } from "../../TSQ_hooks/useCurrentUser.js";
 import { UseGetOfficeUserById } from "../../TSQ_hooks/useGetOfficeUserById.js";
 import { updateConsultation, deleteConsultation } from "../../data-services/consultation_data.js";
 import { getAllUsers } from "../../data-services/user_data.js";
+import { QuillEditor } from "../quill/quillEditor.jsx";
 
 export const ConsultationDetail = () => {
   const { id } = useParams();
@@ -68,6 +69,13 @@ export const ConsultationDetail = () => {
     } catch (error) {
       console.error('Failed to delete consultation:', error);
     }
+  };
+
+  const handleProviderCommentChange = (value) => {
+    setEditableConsultation({
+      ...editableConsultation,
+      providerComment: value,
+    });
   };
 
   const statusOptions = [
@@ -185,6 +193,18 @@ export const ConsultationDetail = () => {
                 />
               ) : (
                 <p className="text-lg">{editableConsultation.comment}</p>
+              )}
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-lg font-semibold">Provider Comment:</label>
+              {isEditing ? (
+                <QuillEditor
+                  value={editableConsultation.providerComment}
+                  onChange={handleProviderCommentChange}
+                />
+              ) : (
+                <p className="text-lg" dangerouslySetInnerHTML={{ __html: editableConsultation.providerComment }}></p>
               )}
             </div>
 
