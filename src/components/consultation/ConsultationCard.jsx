@@ -10,9 +10,10 @@ export const ConsultationCard = ({ consultation, assignedUserName }) => {
   
     const statusOptions = [
       { value: 'New', label: 'New', color: 'bg-green-500 text-white' },
-      { value: 'Pending', label: 'Pending', color: 'bg-yellow-500 text-white' },
+      { value: 'Review', label: 'Review', color: 'bg-yellow-500 text-white' },
       { value: 'Attempted', label: 'Attempted', color: 'bg-blue-500 text-white' },
       { value: 'Contacted', label: 'Contacted', color: 'bg-black text-white' },
+      { value: 'Delete', label: 'Delete', color: 'bg-red-500 text-white' },
     ];
   
     const statusLabelClass = statusOptions.find(statusOption => statusOption.value === consultation.status)?.color;
@@ -45,7 +46,7 @@ export const ConsultationCard = ({ consultation, assignedUserName }) => {
         <div className="mb-2">
           <strong>Comment:</strong> {shortenedComment}
         </div>
-        <div>
+        <div >
           <strong>Assigned:</strong> {assignedUserName}
         </div>
       </a>

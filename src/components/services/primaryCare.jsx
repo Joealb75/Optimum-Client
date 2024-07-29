@@ -1,4 +1,3 @@
-
 import { SiteNavBar } from "../homepage/siteNavBar.jsx";
 import { ClientTestimonials } from "../homepage/ClientTestimonials.jsx";
 import { ConsultationForm } from "../consultation/ConsultationForm.jsx";
@@ -17,8 +16,8 @@ export const PrimaryCare = () => {
           <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">About Primary Care</h1>
           <p className="mt-4 text-lg text-gray-700">Information about Primary Care</p>
 
-          <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 mt-8">How we treat Primary Care</h1>
-          <p className="mt-4 text-lg text-gray-700">Copy about how we treat Primary Care</p>
+          <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 mt-8">Our Primary Care Services</h1>
+          <p className="mt-4 text-lg text-gray-700">Copy about our Primary Care Services</p>
 
           <div>
             <ClientTestimonials />
@@ -32,6 +31,3 @@ export const PrimaryCare = () => {
     </>
   );
 };
-
-
-

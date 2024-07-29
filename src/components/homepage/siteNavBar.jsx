@@ -24,7 +24,7 @@ export const SiteNavBar = () => {
           <a href="/" className="text-white hover:text-[#B87333]">
             Home
           </a>
-          <a href="/contact-us" className="text-white hover:text-[#B87333]">
+          <a href="/about-us" className="text-white hover:text-[#B87333]">
             Contact
           </a>
           <a href="/articles" className="text-white hover:text-[#B87333]">
