@@ -7,6 +7,11 @@ export const ConsultationCard = ({ consultation, assignedUserName }) => {
       consultation.comment.length > 75
         ? consultation.comment.substring(0, 75) + "..."
         : consultation.comment;
+
+      const shortenedProviderComment =
+      consultation.providerComment.length > 75
+        ? consultation.providerComment.substring(0, 75) + "..."
+        : consultation.providerComment;
   
     const statusOptions = [
       { value: 'New', label: 'New', color: 'bg-green-500 text-white' },
@@ -44,7 +49,12 @@ export const ConsultationCard = ({ consultation, assignedUserName }) => {
           <strong>Cell:</strong> {consultation.phone_number}
         </div>
         <div className="mb-2">
-          <strong>Comment:</strong> {shortenedComment}
+          <strong>Comment:</strong>
+          <p>{shortenedComment}</p> 
+        </div>
+        <div className="mb-2">
+          <strong>Provider Comment:</strong> 
+          <p dangerouslySetInnerHTML={{ __html: shortenedProviderComment }} />
         </div>
         <div >
           <strong>Assigned:</strong> {assignedUserName}
