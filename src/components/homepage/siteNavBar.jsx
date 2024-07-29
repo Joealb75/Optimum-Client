@@ -1,7 +1,9 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export const SiteNavBar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const dropdownRef = useRef(null);
 
   const handleMouseEnter = () => {
@@ -13,6 +15,13 @@ export const SiteNavBar = () => {
       setIsServicesOpen(false);
     }, 750); // 750ms delay before closing
   };
+
+  useEffect(() => {
+    const user = localStorage.getItem("Optimum_User");
+    if (user) {
+      setIsUserLoggedIn(true);
+    }
+  }, []);
 
   return (
     <nav className="bg-gray-900 p-4">
@@ -65,6 +74,14 @@ export const SiteNavBar = () => {
               </div>
             )}
           </div>
+          {isUserLoggedIn && (
+            <Link
+              to="/office-dashboard"
+              className="text-white hover:text-[#B87333]"
+            >
+              Dashboard
+            </Link>
+          )}
         </div>
       </div>
     </nav>
