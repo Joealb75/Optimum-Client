@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { UseGetConsultationById } from "../../TSQ_hooks/useGetConsultationById.js";
 import { useCurrentUser } from "../../TSQ_hooks/useCurrentUser.js";
 import { UseGetOfficeUserById } from "../../TSQ_hooks/useGetOfficeUserById.js";
-import { OfficeNavBar } from "../officeViews/officeNavBar.jsx";
 import { updateConsultation, deleteConsultation } from "../../data-services/consultation_data.js";
 import { getAllUsers } from "../../data-services/user_data.js";
 
@@ -18,6 +17,9 @@ export const ConsultationDetail = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [editableConsultation, setEditableConsultation] = useState(null);
   const [users, setUsers] = useState([]);
+
+  const assignedUser = users.find(user => user.id === editableConsultation?.assigned_to_user);
+  const assignedUserName = assignedUser ? `${assignedUser.first_name} ${assignedUser.last_name}` : 'Unknown';
 
   useEffect(() => {
     if (consultation) {
@@ -42,6 +44,7 @@ export const ConsultationDetail = () => {
       try {
         await updateConsultation(id, editableConsultation);
         setIsEditing(false);
+        navigate("/office-dashboard");
       } catch (error) {
         console.error('Failed to update consultation:', error);
       }
@@ -67,14 +70,12 @@ export const ConsultationDetail = () => {
     }
   };
 
-  const assignedUser = users.find(user => user.id === editableConsultation?.assigned_to_user);
-  const assignedUserName = assignedUser ? `${assignedUser.first_name} ${assignedUser.last_name}` : 'Unknown';
-
   const statusOptions = [
     { value: 'New', label: 'New', color: 'bg-green-500 text-white' },
-    { value: 'Pending', label: 'Pending', color: 'bg-yellow-500 text-white' },
+    { value: 'Review', label: 'Review', color: 'bg-yellow-500 text-white' },
     { value: 'Attempted', label: 'Attempted', color: 'bg-blue-500 text-white' },
     { value: 'Contacted', label: 'Contacted', color: 'bg-black text-white' },
+    { value: 'Delete', label: 'Delete', color: 'bg-red-500 text-white' },
   ];
 
   const statusLabelClass = statusOptions.find(option => option.value === editableConsultation?.status)?.color;
@@ -82,7 +83,7 @@ export const ConsultationDetail = () => {
 
   return (
     <>
-      <OfficeNavBar />
+      
       <div className="p-4 max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-6">Consultation Detail</h1>
 

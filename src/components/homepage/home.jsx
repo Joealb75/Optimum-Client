@@ -1,71 +1,15 @@
-import { useState, useEffect } from "react";
 import { SiteNavBar } from "./siteNavBar.jsx";
-import { ConsultationForm } from "../consultation/ConsultationForm.jsx";
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { MeetTheTeam } from "../providers/TheTeam.jsx";
+import { ComeVisitUs_Map_Consult_half } from "../contact/visitUs.jsx";
 
-import men1 from "/src/assets/homeSlideShow/men1.jpeg";
-import men2 from "/src/assets/homeSlideShow/men2.jpeg";
-import men3 from "/src/assets/homeSlideShow/men3.jpeg";
+import demoVideo from '/src/assets/videos/demo.mp4'
 
 export const HomePage = () => {
-  const [allOfficeUsers, setAllOfficeUsers] = useState([
-    {
-      id: 1,
-      name: "John Doe",
-      image:
-        "https://www.gold.ac.uk/media/images-by-section/departments/music/staff/Guy-Baron.jpg",
-      profession: "Physician Assistant, Certified",
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      image: "https://www.hec.ca/en/profs/guy.pare.jpg",
-      profession: "Physician Assistant, Certified",
-    },
-    {
-      id: 3,
-      name: "John Doe",
-      image:
-        "https://www.gold.ac.uk/media/images-by-section/departments/music/staff/Guy-Baron.jpg",
-      profession: "Physician Assistant, Certified",
-    },
-    {
-      id: 4,
-      name: "Jane Smith",
-      image: "https://www.hec.ca/en/profs/guy.pare.jpg",
-      profession: "Physician Assistant, Certified",
-    },
-    {
-      id: 5,
-      name: "John Doe",
-      image:
-        "https://www.gold.ac.uk/media/images-by-section/departments/music/staff/Guy-Baron.jpg",
-      profession: "Physician Assistant, Certified",
-    },
-    {
-      id: 6,
-      name: "Jane Smith",
-      image: "https://www.hec.ca/en/profs/guy.pare.jpg",
-      profession: "Physician Assistant, Certified",
-    },
-  ]);
-
-  //! Slideshow state
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [men1, men2, men3];
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 10000);
-
-    return () => clearInterval(intervalId);
-  }, [images.length]);
 
   return (
     <>
       <SiteNavBar />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col lg:flex-row">
           <section className="lg:w-1/2 lg:pr-4 mb-8 lg:mb-0">
             <div className="text-center lg:text-left">
@@ -90,128 +34,32 @@ export const HomePage = () => {
             </div>
           </section>
 
-          {/* Image Slide Show */}
+          {/* Video Section */}
           <div className="lg:w-1/2">
             <div className="relative">
-              <img
+              <video
                 className="w-full object-cover h-72"
-                src={images[currentIndex]}
-                alt="Slideshow"
+                src={demoVideo}
+                autoPlay
+                loop
+                muted
               />
             </div>
           </div>
         </div>
 
         {/* Meet Your Team Section */}
-        <section className="py-16">
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-extrabold text-gray-900">
-              Meet Your Team
-            </h1>
-          </div>
-
-          <div className="overflow-x-auto">
-            <div className="flex space-x-6">
-              {allOfficeUsers.map((user) => (
-                <div
-                  key={user.id}
-                  className="bg-white overflow-hidden shadow rounded-lg flex-none w-60"
-                >
-                  <div className="px-4 py-5 sm:p-6">
-                    <div className="flex items-center justify-center mb-4">
-                      <img
-                        className="w-24 h-24 rounded-full mx-auto"
-                        src={user.image}
-                        alt={user.name}
-                      />
-                    </div>
-                    <div className="text-center">
-                      <h3 className="text-lg leading-6 font-medium text-gray-900">
-                        {user.name}
-                      </h3>
-                      <p className="mt-2 text-sm text-gray-500">
-                        {user.profession}
-                      </p>
-                      <div className="mt-4">
-                        <button className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-[#228B22] focus:outline-none focus:bg-gray-700">
-                          About Me
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-4">
-          <div className="flex items-stretch">
-            <div className="w-full max-w-lg p-8 bg-gray-900 text-white rounded-lg mr-8 flex-shrink-0">
-              <h2 className="text-2xl mb-6">Do You Need a Consultation?</h2>
-              <p className="text-lg">
-                Placeholder text for the consultation information section. This
-                text will help users determine if they need a consultation based
-                on their symptoms or concerns. Additional information can be
-                added here to provide more guidance.
-              </p>
-              <ul>
-                    <li className="text-white">New item</li>
-                    <li>New item</li>
-                    <li>New item</li>
-              </ul>
-            </div>
-            <ConsultationForm />
-          </div>
+        <section className="py-2">
+          <MeetTheTeam />
         </section>
 
         {/* Come Visit Us Section */}
-        <section className="py-16">
-          <div className="flex flex-col lg:flex-row">
-            {/* Contact Information */}
-            <div className="lg:w-1/2 lg:pr-8 mb-8 lg:mb-0 bg-gray-100 p-6 rounded-lg">
-              <div className="text-left">
-                <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
-                  Come Visit Us
-                </h2>
-                <p className="text-lg text-gray-700 flex items-center mb-2">
-                  <FaMapMarkerAlt className="mr-2 text-gray-600" />
-                  125 Maple Row Blvd, Ste. 100
-                  <br />
-                  Hendersonville, TN 37075
-                </p>
-                <p className="text-lg text-gray-700 flex items-center mb-2">
-                  <FaPhoneAlt className="mr-2 text-gray-600" />
-                  <a href="tel:615-991-3158" className="hover:text-[#228B22]">
-                    615-991-3158
-                  </a>
-                </p>
-                <p className="text-lg text-gray-700 flex items-center">
-                  <FaEnvelope className="mr-2 text-gray-600" />
-                  <a
-                    href="mailto:optimummenshealth@gmail.com"
-                    className="hover:text-[#228B22]"
-                  >
-                    optimummenshealth@gmail.com
-                  </a>
-                </p>
-              </div>
-            </div>
-
-            {/* Business Hours */}
-            <div className="lg:w-1/2 bg-gray-900 text-white p-8 rounded-lg">
-              <h3 className="text-2xl font-extrabold mb-4">Business Hours</h3>
-              <p className="text-lg mb-2">Monday: Closed</p>
-              <p className="text-lg mb-2">Tuesday: 7 AM - 6 PM</p>
-              <p className="text-lg mb-2">Wednesday: 7 AM - 6 PM</p>
-              <p className="text-lg mb-2">Thursday: 7 AM - 6 PM</p>
-              <p className="text-lg mb-2">Friday: 7 AM - 6 PM</p>
-              <p className="text-lg mb-2">Saturday: Closed</p>
-              <p className="text-lg mb-2">Sunday: Closed</p>
-            </div>
-          </div>
+        <section className="py-2">
+          <ComeVisitUs_Map_Consult_half />
         </section>
+
       </div>
+
     </>
   );
 };

@@ -1,7 +1,18 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export const SiteNavBar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    setIsServicesOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setTimeout(() => {
+      setIsServicesOpen(false);
+    }, 750); // 750ms delay before closing
+  };
 
   return (
     <nav className="bg-gray-900 p-4">
@@ -13,7 +24,7 @@ export const SiteNavBar = () => {
           <a href="/" className="text-white hover:text-[#B87333]">
             Home
           </a>
-          <a href="/contact" className="text-white hover:text-[#B87333]">
+          <a href="/about-us" className="text-white hover:text-[#B87333]">
             Contact
           </a>
           <a href="/articles" className="text-white hover:text-[#B87333]">
@@ -21,25 +32,35 @@ export const SiteNavBar = () => {
           </a>
           <div
             className="relative"
-            onMouseEnter={() => setIsServicesOpen(true)}
-            onMouseLeave={() => setIsServicesOpen(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <button className="text-white hover:text-[#B87333]">
               Services ⌄
             </button>
             {isServicesOpen && (
-              <div className="absolute mt-2 bg-[#404040] rounded shadow-lg z-50">
+              <div
+                ref={dropdownRef}
+                className="absolute right-0 mt-2 bg-white border border-gray-900 rounded shadow-lg z-50"
+                style={{ minWidth: '200px' }}
+              >
                 <a
-                  href="#" // Change to actual service links 
-                  className="block px-4 py-2 text-white hover:text-[#B87333]"
+                  href="/services/primary-care"
+                  className="block px-4 py-2 text-sm text-gray-900 hover:text-[#B87333]"
                 >
-                  Example Service 1
+                  Primary Care
                 </a>
                 <a
-                  href="#"
-                  className="block px-4 py-2 text-white hover:text-[#B87333]"
+                  href="/services/testosterone-replacement"
+                  className="block px-4 py-2 text-sm text-gray-900 hover:text-[#B87333]"
                 >
-                  Example Service 2
+                  Testosterone Replacement Therapy
+                </a>
+                <a
+                  href="/services/erectile-dysfunction"
+                  className="block px-4 py-2 text-sm text-gray-900 hover:text-[#B87333]"
+                >
+                  Erectile Dysfunction
                 </a>
               </div>
             )}
@@ -49,6 +70,3 @@ export const SiteNavBar = () => {
     </nav>
   );
 };
-
-
-
