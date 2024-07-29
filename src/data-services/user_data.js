@@ -1,4 +1,4 @@
-import { fetchWithResponse } from "./fetcher.js"
+import { fetchWithResponse, fetchWithoutResponse } from "./fetcher.js"
 
 export function getAllOfficeUsers() {
 
@@ -61,8 +61,6 @@ export function getUserByID() {
     })
 }
 
-// http://localhost:8000/officeuser/by_user_id?user_id=3
-
 export function getOfficeUserByUserID(currentUser) {
   
     if (!currentUser || !currentUser.id) {
@@ -87,6 +85,43 @@ export function getOfficeUserByUserID(currentUser) {
         'Authorization': `Token ${token}`,
         'Content-Type': 'application/json'
       }
+    });
+  }
+  
+  export function updateUser(userId, userData) {
+    const user = JSON.parse(localStorage.getItem('Optimum_User'));
+    const token = user ? user.token : null;
+  
+    if (!token) {
+      console.error('No token found');
+      throw new Error('No token found');
+    }
+  
+    return fetchWithoutResponse(`users/${userId}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Token ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    });
+  }
+  
+  export async function updateOfficeUser(id, data) {
+    const user = JSON.parse(localStorage.getItem('Optimum_User'));
+    const token = user ? user.token : null;
+  
+    if (!token) {
+      console.error('No token found');
+      throw new Error('No token found');
+    }
+  
+    return fetchWithResponse(`officeuser/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Token ${token}`,
+      },
+      body: data,
     });
   }
   

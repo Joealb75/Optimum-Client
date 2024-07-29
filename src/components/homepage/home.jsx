@@ -1,66 +1,10 @@
-import { useState, useEffect } from "react";
 import { SiteNavBar } from "./siteNavBar.jsx";
-import { ConsultationForm } from "../consultation/ConsultationForm.jsx";
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { MeetTheTeam } from "../providers/TheTeam.jsx";
+import { ComeVisitUs_Map_Consult_half } from "../contact/visitUs.jsx";
 
-import men1 from "/src/assets/homeSlideShow/men1.jpeg";
-import men2 from "/src/assets/homeSlideShow/men2.jpeg";
-import men3 from "/src/assets/homeSlideShow/men3.jpeg";
+import demoVideo from '/src/assets/videos/demo.mp4'
 
 export const HomePage = () => {
-  const [allOfficeUsers, setAllOfficeUsers] = useState([
-    {
-      id: 1,
-      name: "John Doe",
-      image:
-        "https://www.gold.ac.uk/media/images-by-section/departments/music/staff/Guy-Baron.jpg",
-      profession: "Physician Assistant, Certified",
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      image: "https://www.hec.ca/en/profs/guy.pare.jpg",
-      profession: "Physician Assistant, Certified",
-    },
-    {
-      id: 3,
-      name: "John Doe",
-      image:
-        "https://www.gold.ac.uk/media/images-by-section/departments/music/staff/Guy-Baron.jpg",
-      profession: "Physician Assistant, Certified",
-    },
-    {
-      id: 4,
-      name: "Jane Smith",
-      image: "https://www.hec.ca/en/profs/guy.pare.jpg",
-      profession: "Physician Assistant, Certified",
-    },
-    {
-      id: 5,
-      name: "John Doe",
-      image:
-        "https://www.gold.ac.uk/media/images-by-section/departments/music/staff/Guy-Baron.jpg",
-      profession: "Physician Assistant, Certified",
-    },
-    {
-      id: 6,
-      name: "Jane Smith",
-      image: "https://www.hec.ca/en/profs/guy.pare.jpg",
-      profession: "Physician Assistant, Certified",
-    },
-  ]);
-
-  //! Slideshow state
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [men1, men2, men3];
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 10000);
-
-    return () => clearInterval(intervalId);
-  }, [images.length]);
 
   return (
     <>
@@ -90,123 +34,32 @@ export const HomePage = () => {
             </div>
           </section>
 
-          {/* Image Slide Show */}
+          {/* Video Section */}
           <div className="lg:w-1/2">
             <div className="relative">
-              <img
+              <video
                 className="w-full object-cover h-72"
-                src={images[currentIndex]}
-                alt="Slideshow"
+                src={demoVideo}
+                autoPlay
+                loop
+                muted
               />
             </div>
           </div>
         </div>
 
         {/* Meet Your Team Section */}
-        <section className="py-8">
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-extrabold text-gray-900">
-              Meet Your Team
-            </h1>
-          </div>
-
-          <div className="overflow-x-auto">
-            <div className="flex space-x-6">
-              {allOfficeUsers.map((user) => (
-                <div
-                  key={user.id}
-                  className="bg-white overflow-hidden shadow rounded-lg flex-none w-60"
-                >
-                  <div className="px-4 py-5 sm:p-6">
-                    <div className="flex items-center justify-center mb-4">
-                      <img
-                        className="w-24 h-24 rounded-full mx-auto"
-                        src={user.image}
-                        alt={user.name}
-                      />
-                    </div>
-                    <div className="text-center">
-                      <h3 className="text-lg leading-6 font-medium text-gray-900">
-                        {user.name}
-                      </h3>
-                      <p className="mt-2 text-sm text-gray-500">
-                        {user.profession}
-                      </p>
-                      <div className="mt-4">
-                        <button className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-[#228B22] focus:outline-none focus:bg-gray-700">
-                          About Me
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <ConsultationForm />
+        <section className="py-2">
+          <MeetTheTeam />
         </section>
 
         {/* Come Visit Us Section */}
-        <section className="py-4">
-          <div className="flex flex-col lg:flex-row">
-            {/* Contact Information */}
-            <div className="lg:w-1/2 lg:pr-4 mb-4 lg:mb-0 bg-gray-100 p-4 rounded-lg">
-              <div className="text-left">
-                <h2 className="text-2xl font-extrabold text-gray-900 mb-2">
-                  Come Visit Us
-                </h2>
-                <p className="text-sm text-gray-700 flex items-center mb-1">
-                  <FaMapMarkerAlt className="mr-2 text-gray-600" />
-                  125 Maple Row Blvd, Ste. 100
-                  <br />
-                  Hendersonville, TN 37075
-                </p>
-                <p className="text-sm text-gray-700 flex items-center mb-1">
-                  <FaPhoneAlt className="mr-2 text-gray-600" />
-                  <a href="tel:615-991-3158" className="hover:text-[#228B22]">
-                    615-991-3158
-                  </a>
-                </p>
-                <p className="text-sm text-gray-700 flex items-center">
-                  <FaEnvelope className="mr-2 text-gray-600" />
-                  <a
-                    href="mailto:optimummenshealth@gmail.com"
-                    className="hover:text-[#228B22]"
-                  >
-                    optimummenshealth@gmail.com
-                  </a>
-                </p>
-              </div>
-            </div>
+        <section className="py-2">
+          <ComeVisitUs_Map_Consult_half />
+        </section>
 
-            {/* Business Hours */}
-            <div className="lg:w-1/2 bg-gray-900 text-white p-4 rounded-lg">
-              <h3 className="text-xl font-extrabold mb-2">Business Hours</h3>
-              <p className="text-sm mb-1">Monday: Closed</p>
-              <p className="text-sm mb-1">Tuesday: 7 AM - 6 PM</p>
-              <p className="text-sm mb-1">Wednesday: 7 AM - 6 PM</p>
-              <p className="text-sm mb-1">Thursday: 7 AM - 6 PM</p>
-              <p className="text-sm mb-1">Friday: 7 AM - 6 PM</p>
-              <p className="text-sm mb-1">Saturday: Closed</p>
-              <p className="text-sm mb-1">Sunday: Closed</p>
-            </div>
-          </div>
-        </section>
-        <section>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3215.2454490739824!2d-86.60186492291905!3d36.30635429537983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864474a0c9f2313%3A0x9ddba24edfc37ae0!2sOptimum%20Mens%20Health!5e0!3m2!1sen!2sus!4v1721985584826!5m2!1sen!2sus"
-            width="100%"
-            height="450"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </section>
       </div>
+
     </>
   );
 };

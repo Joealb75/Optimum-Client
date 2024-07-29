@@ -11,8 +11,12 @@ export const ContactHome = () => {
       <SiteNavBar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="hero-image mb-8" style={{ backgroundImage: `url(${general_img})`, height: '400px', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-          <h1 className="text-4xl font-bold text-white text-center py-20">Contact Us</h1>
         </div>
+
+        <section >
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-2 py-8">About Us</h1>
+        </section>
+
         <section className="py-4">
           <div className="flex flex-col lg:flex-row">
             {/* Contact Information */}

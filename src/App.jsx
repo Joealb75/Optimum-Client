@@ -12,7 +12,9 @@ import { TestosteroneReplacement } from "./components/services/trt.jsx";
 import { SiteFooter } from "./components/homepage/siteFooter.jsx";
 import { ArticleHome } from "./components/articles/articlesHome.jsx";
 import { ContactHome } from "./components/contact/contactHome.jsx";
-
+import { OfficeUserProfile } from "./components/officeViews/profile/officeUserProfile.jsx";
+import { AllConsultations } from "./components/consultation/AllConsultations.jsx";
+import { TheProviderAbout } from "./components/providers/TheProviderAbout.jsx";
 
 export const App = () => {
 
@@ -25,7 +27,8 @@ export const App = () => {
           <Route path="/" element={<HomePage currentUser={currentUser} />} />
           <Route path="/office-login" element={<Login />} />
           <Route path="/articles" element={<ArticleHome />}/>
-          <Route path="/contact-us" element={<ContactHome />}/>
+          <Route path="/about-us" element={<ContactHome />}/>
+          <Route path="/about-me/:id" element={<TheProviderAbout />} />
           <Route path="/services/primary-care" element={<PrimaryCare />} />
           <Route path="/services/testosterone-replacement" element={<TestosteroneReplacement />} />
           <Route path="/services/erectile-dysfunction" element={<ErectileDysfunction />} />
@@ -34,6 +37,8 @@ export const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/office-dashboard" element={<OfficeDashboard currentUser={currentUser}/>} />
             <Route path="/consultation/:id" element={< ConsultationDetail />} />
+            <Route path="/consultation-all" element={<AllConsultations />} />
+            <Route path="/profile/:id" element={<OfficeUserProfile />} />
           </Route>
         </Routes>
       </div>
