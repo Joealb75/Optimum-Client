@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 export const SiteNavBar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -75,12 +74,12 @@ export const SiteNavBar = () => {
             )}
           </div>
           {isUserLoggedIn && (
-            <Link
-              to="/office-dashboard"
+            <a
+              href="/office-dashboard"
               className="text-white hover:text-[#B87333]"
             >
               Dashboard
-            </Link>
+            </a>
           )}
         </div>
       </div>

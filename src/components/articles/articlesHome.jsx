@@ -1,53 +1,70 @@
-import { SiteNavBar } from "../homepage/siteNavBar.jsx";
+import { useState, useEffect } from "react";
+import { getAllArticles, getAllTags } from "../../data-services/article_data.js";
 import article_main_image from '/src/assets/article/article_main_image.svg';
-
-
-const articles = [
-    {
-        id: 1,
-        title: "Men's Health Month – Most Common Health Concerns",
-        image: "https://www.afcurgentcare.com/wp-content/uploads/2024/05/Screenshot-2024-05-29-203331.png",
-        content: "Men's Health Month focuses on raising awareness about the most common health concerns affecting men. Key issues include cardiovascular diseases, which are the leading cause of death among men, and prostate cancer, which is one of the most prevalent cancers in men. Mental health is also a significant concern, with men often being less likely to seek help for conditions like depression and anxiety. Additionally, diabetes and obesity are growing health challenges that can lead to severe complications if not managed properly."
-    },
-    {
-        id: 2,
-        title: "Understanding the Benefits of Regular Exercise",
-        image: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*g6S1zi7I0DTwpuARipkqkw.jpeg",
-        content: "Regular exercise is essential for maintaining good health. It helps in reducing the risk of chronic diseases, improving mental health, and enhancing overall quality of life. This article delves into the various benefits of incorporating regular exercise into your daily routine."
-    },
-
-];
+import { TagsFilterBar } from "./tags/TagsFilterBar.jsx";
+import { ArticlesList } from "./ArticlesList.jsx";
+import { SiteNavBar } from "../homepage/siteNavBar.jsx";
 
 export const ArticleHome = () => {
+    const [articles, setArticles] = useState([]);
+    const [tags, setTags] = useState([]);
+    const [selectedTag, setSelectedTag] = useState(null);
+
+    useEffect(() => {
+        const fetchArticles = async () => {
+            try {
+                const fetchedArticles = await getAllArticles();
+                const sortedArticles = fetchedArticles.sort((a, b) => new Date(b.created_date) - new Date(a.created_date));
+                setArticles(sortedArticles);
+            } catch (error) {
+                console.error('Error fetching articles:', error);
+            }
+        };
+
+        fetchArticles();
+    }, []);
+
+    useEffect(() => {
+        const fetchTags = async () => {
+            try {
+                const fetchedTags = await getAllTags();
+                setTags(fetchedTags);
+            } catch (error) {
+                console.error('Error fetching tags:', error);
+            }
+        };
+
+        fetchTags();
+    }, []);
+
+    const handleTagClick = async (tag) => {
+        setSelectedTag(tag);
+        if (tag === null) {
+            const fetchedArticles = await getAllArticles();
+            const sortedArticles = fetchedArticles.sort((a, b) => new Date(b.created_date) - new Date(a.created_date));
+            setArticles(sortedArticles);
+            return;
+        }
+        try {
+            const fetchedArticles = await getAllArticles();
+            const filteredArticles = fetchedArticles.filter(article => article.tags.includes(tag.id));
+            const sortedArticles = filteredArticles.sort((a, b) => new Date(b.created_date) - new Date(a.created_date));
+            setArticles(sortedArticles);
+        } catch (error) {
+            console.error('Error fetching articles:', error);
+        }
+    };
 
     return (
         <>
             <SiteNavBar />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                 <div className="hero-image mb-8" style={{ backgroundImage: `url(${article_main_image})`, height: '400px', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+                <TagsFilterBar tags={tags} selectedTag={selectedTag} onTagClick={handleTagClick} />
                 <hr className="border-t border-gray-300 my-4" />
-                <div className="container mx-auto p-4">
-                    {articles.map((article) => (
-                        <div key={article.id} className="mb-8">
-                            <a href={`/articles/${article.title}`} target="_blank" className="block hover:bg-gray-100 p-4 rounded-lg">
-                                <div className="flex items-start">
-                                    <img src={article.image} alt={article.title} className="w-24 h-24 object-cover mr-4 rounded-lg shadow-md" />
-                                    <div>
-                                        <h2 className="text-xl font-bold text-gray-900 hover:text-[#B87333]">
-                                            {article.title}
-                                        </h2>
-                                        <p className="mt-2 text-gray-700">{article.content.substring(0, 250)}...</p>
-                                    </div>
-                                </div>
-                            </a>
-                            <hr className="border-t border-gray-300 my-4" />
-                        </div>
-                    ))}
-                </div>
+                <ArticlesList articles={articles} />
             </div>
         </>
     );
 };
-
-
 

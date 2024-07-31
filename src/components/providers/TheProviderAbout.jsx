@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getAllUsers, getAllOfficeUsers } from "../../data-services/user_data.js";
+import { getAllUsers_NoToken, getAllOfficeUsers_noToken } from "../../data-services/user_data.js";
 import { SiteNavBar } from "../homepage/siteNavBar.jsx";
 
 export const TheProviderAbout = () => {
@@ -14,8 +14,8 @@ export const TheProviderAbout = () => {
     const fetchUserData = async () => {
       try {
         const [usersData, officeUsersData] = await Promise.all([
-          getAllUsers(),
-          getAllOfficeUsers(),
+          getAllUsers_NoToken(),
+          getAllOfficeUsers_noToken(),
         ]);
 
         const matchedUser = usersData.find((user) => user.id === parseInt(id, 10));
