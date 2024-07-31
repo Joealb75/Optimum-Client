@@ -15,6 +15,7 @@ import { ContactHome } from "./components/contact/contactHome.jsx";
 import { OfficeUserProfile } from "./components/officeViews/profile/officeUserProfile.jsx";
 import { AllConsultations } from "./components/consultation/AllConsultations.jsx";
 import { TheProviderAbout } from "./components/providers/TheProviderAbout.jsx";
+import { ViewArticle } from "./components/articles/ViewArticle.jsx";
 
 export const App = () => {
 
@@ -27,6 +28,7 @@ export const App = () => {
           <Route path="/" element={<HomePage currentUser={currentUser} />} />
           <Route path="/office-login" element={<Login />} />
           <Route path="/articles" element={<ArticleHome />}/>
+          <Route path="/articles/:articleId" element={<ViewArticle />} />
           <Route path="/about-us" element={<ContactHome />}/>
           <Route path="/about-me/:id" element={<TheProviderAbout />} />
           <Route path="/services/primary-care" element={<PrimaryCare />} />

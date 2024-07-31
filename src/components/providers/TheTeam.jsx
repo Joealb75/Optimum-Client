@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAllUsers, getAllOfficeUsers } from "../../data-services/user_data.js";
+import { getAllOfficeUsers_noToken, getAllUsers_NoToken } from "../../data-services/user_data.js";
 
 export const MeetTheTeam = () => {
   const API_URL = "http://localhost:8000";
@@ -12,8 +12,8 @@ export const MeetTheTeam = () => {
     const fetchUsersAndOfficeUsers = async () => {
       try {
         const [usersData, officeUsersData] = await Promise.all([
-          getAllUsers(),
-          getAllOfficeUsers(),
+          getAllUsers_NoToken(),
+          getAllOfficeUsers_noToken(),
         ]);
         setAllUsers(usersData);
         setOfficeUsers(officeUsersData);

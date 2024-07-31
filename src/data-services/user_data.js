@@ -40,22 +40,29 @@ export async function getAllUsers() {
   });
 }
 
-export function getUserByID() {
-    
-    const user = JSON.parse(localStorage.getItem('Optimum_User'));
-    
-    // Extract the token from the user object
-    const token = user ? user.token : null;
-
-    if (!token) {
-        console.error('No token found');
-        return;
+export async function getAllUsers_NoToken() {
+  return fetchWithResponse('users', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
     }
+  });
+}
 
-    return fetchWithResponse('users', {
+export function getAllOfficeUsers_noToken() {
+  return fetchWithResponse('officeuser', {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json'
+        }
+  })
+}
+
+export function getUserByID(id) {
+
+    return fetchWithResponse(`users/${id}`, {
         method: 'GET',
         headers: {
-            'Authorization': `Token ${token}`,
             'Content-Type': 'application/json'
           }
     })
