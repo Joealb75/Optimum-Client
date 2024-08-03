@@ -1,29 +1,30 @@
 import { useState, useEffect } from "react";
 import { useCurrentUser } from "../../TSQ_hooks/useCurrentUser.js";
-import { getAllUsers } from "../../data-services/user_data.js";
+import { getUserByID } from "../../data-services/user_data.js";
 import { UseGetOfficeUserById } from "../../TSQ_hooks/useGetOfficeUserById.js";
 import { LatestConsultations } from "../consultation/LatestConsultations.jsx";
 import { AdminUserList } from "./admin/AdminUserList.jsx";
+import { LatestArticles } from "./articles/LatestArticles.jsx";
+import { ViewAllTags } from "./tags/ViewAllTags.jsx";
 
 
 export const OfficeDashboard = () => {
   const { currentUser, isLoading: userLoading, error: userError } = useCurrentUser();
   const { data: officeUser} = UseGetOfficeUserById(currentUser);
 
-  const [users, setUsers] = useState([]);
   const [currentUserInfo, setCurrentUserInfo] = useState(null);
 
 
   useEffect(() => {
-    getAllUsers().then(setUsers).catch(console.error);
-  }, []);
+    const user = JSON.parse(localStorage.getItem("Optimum_User"));
+    const token = user ? user.token : null;
 
-  useEffect(() => {
-    if (currentUser && users.length > 0) {
-      const userInfo = users.find(user => user.id === currentUser.id);
-      setCurrentUserInfo(userInfo);
+    if (currentUser && token) {
+      getUserByID(currentUser.id)
+        .then(setCurrentUserInfo)
+        .catch(console.error);
     }
-  }, [currentUser, users]);
+  }, [currentUser]);
 
   if (userLoading) {
     return <div>Loading...</div>;
@@ -42,7 +43,7 @@ export const OfficeDashboard = () => {
       <div className="p-4">
         {currentUserInfo ? (
           <p className="text-xl font-semibold">
-            Welcome, {currentUserInfo.first_name} {currentUserInfo.last_name}
+            Welcome, {currentUserInfo.first_name}
           </p>
         ) : (
           <p>Loading user data...</p>
@@ -60,7 +61,12 @@ export const OfficeDashboard = () => {
       )}
       
       <section>
+        <LatestArticles />
+        <hr className="border-t border-gray-300 my-2" />
+      </section>
 
+      <section>
+        <ViewAllTags />
       </section>
     </>
   );

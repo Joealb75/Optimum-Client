@@ -61,7 +61,6 @@ export function getArticleByID(id) {
 //!--------------- UPDATE
 
 export function updateArticle(id, data) {
-  return new Promise((resolve, reject) => {
     const user = JSON.parse(localStorage.getItem('Optimum_User'));
     const token = user ? user.token : null;
 
@@ -74,11 +73,9 @@ export function updateArticle(id, data) {
       method: 'PUT',
       headers: {
         'Authorization': `Token ${token}`,
-        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)
-    }).then(resolve).catch(reject);
-  });
+      body: data
+    })
 }
 
 export function updateTag(id, data) {
@@ -105,7 +102,6 @@ export function updateTag(id, data) {
 //!--------------- CREATE
 
 export function createNewArticle(newArticle) {
-  return new Promise((resolve, reject) => {
     const user = JSON.parse(localStorage.getItem('Optimum_User'));
     const token = user ? user.token : null;
 
@@ -118,11 +114,9 @@ export function createNewArticle(newArticle) {
       method: 'POST',
       headers: {
         'Authorization': `Token ${token}`,
-        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(newArticle)
-    }).then(resolve).catch(reject);
-  });
+      body: newArticle
+    })
 }
 
 export function createNewTag(newTag) {

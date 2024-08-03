@@ -14,7 +14,8 @@ export const ArticleHome = () => {
         const fetchArticles = async () => {
             try {
                 const fetchedArticles = await getAllArticles();
-                const sortedArticles = fetchedArticles.sort((a, b) => new Date(b.created_date) - new Date(a.created_date));
+                const approvedArticles = fetchedArticles.filter(article => article.adminApproved); 
+                const sortedArticles = approvedArticles.sort((a, b) => new Date(b.created_date) - new Date(a.created_date));
                 setArticles(sortedArticles);
             } catch (error) {
                 console.error('Error fetching articles:', error);
@@ -41,13 +42,14 @@ export const ArticleHome = () => {
         setSelectedTag(tag);
         if (tag === null) {
             const fetchedArticles = await getAllArticles();
-            const sortedArticles = fetchedArticles.sort((a, b) => new Date(b.created_date) - new Date(a.created_date));
+            const approvedArticles = fetchedArticles.filter(article => article.adminApproved);
+            const sortedArticles = approvedArticles.sort((a, b) => new Date(b.created_date) - new Date(a.created_date));
             setArticles(sortedArticles);
             return;
         }
         try {
             const fetchedArticles = await getAllArticles();
-            const filteredArticles = fetchedArticles.filter(article => article.tags.includes(tag.id));
+            const filteredArticles = fetchedArticles.filter(article => article.tags.includes(tag.id) && article.adminApproved);
             const sortedArticles = filteredArticles.sort((a, b) => new Date(b.created_date) - new Date(a.created_date));
             setArticles(sortedArticles);
         } catch (error) {

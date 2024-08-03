@@ -59,16 +59,12 @@ export function getConsultationById(id) {
   });
 }
 
-export function updateConsultation(id, updatedData) {
-  return new Promise((resolve, reject) => {
+export function updateConsultation(id, data) {
     const user = JSON.parse(localStorage.getItem('Optimum_User'));
-
-    // Extract the token from the user object
     const token = user ? user.token : null;
 
     if (!token) {
       console.error('No token found');
-      reject('No token found');
       return;
     }
 
@@ -78,9 +74,8 @@ export function updateConsultation(id, updatedData) {
         'Authorization': `Token ${token}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(updatedData),
-    }).then(resolve).catch(reject);
-  });
+      body: JSON.stringify(data)
+    })
 }
 
 

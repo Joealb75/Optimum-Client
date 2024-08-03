@@ -1,7 +1,7 @@
 import { SiteNavBar } from "../homepage/siteNavBar.jsx";
 import { ClientTestimonials } from "../homepage/ClientTestimonials.jsx";
 import { ConsultationForm } from "../consultation/ConsultationForm.jsx";
-import general_img from '/src/assets/services/PrimaryCare/Primary_Care.svg';
+import general_img from '/src/assets/SVGs/Primary_Care.svg';
 
 export const PrimaryCare = () => {
   const primaryCareServices = [

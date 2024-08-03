@@ -2,7 +2,7 @@ import { SiteNavBar } from "../homepage/siteNavBar.jsx";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { ConsultationForm } from "../consultation/ConsultationForm.jsx";
 
-import general_img from '/src/assets/contact_us/contact_us.svg';
+import general_img from '/src/assets/SVGs/contact_us1.svg';
 
 export const ContactHome = () => {
 

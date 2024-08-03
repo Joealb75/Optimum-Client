@@ -47,7 +47,7 @@ export const SiteFooter = () => {
               </a>
             </p>
           </div>
-          <p className="text-gray-400 mt-4 md:mt-0">&copy; {new Date().getFullYear()} Optimum Mens Health. All rights reserved.</p>
+          <p className="text-gray-400 mt-4 md:mt-0">&copy; {new Date().getFullYear()} Optimum Mens Health. All rights <a href="/office-login">reserved.</a></p>
         </div>
       </div>
     </footer>

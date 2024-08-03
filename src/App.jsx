@@ -16,6 +16,9 @@ import { OfficeUserProfile } from "./components/officeViews/profile/officeUserPr
 import { AllConsultations } from "./components/consultation/AllConsultations.jsx";
 import { TheProviderAbout } from "./components/providers/TheProviderAbout.jsx";
 import { ViewArticle } from "./components/articles/ViewArticle.jsx";
+import { ViewAllArticles } from "./components/officeViews/articles/ViewAllArticles.jsx";
+import { ArticleDetails } from "./components/officeViews/articles/ArticleDetails.jsx";
+import { CreateArticle } from "./components/officeViews/articles/CreateArticle.jsx";
 
 export const App = () => {
 
@@ -41,6 +44,9 @@ export const App = () => {
             <Route path="/consultation/:id" element={< ConsultationDetail />} />
             <Route path="/consultation-all" element={<AllConsultations />} />
             <Route path="/profile/:id" element={<OfficeUserProfile />} />
+            <Route path="/articles/:id/edit" element={< ArticleDetails />} />
+            <Route path="/articles-all" element={<ViewAllArticles />} />
+            <Route path="/article-new" element={<CreateArticle />} />
           </Route>
         </Routes>
       </div>
@@ -52,3 +58,5 @@ export const App = () => {
 
 // :userId - pull a PARAMETER 
 // {currentUser} - pass a PROP
+
+// "/article-new"
