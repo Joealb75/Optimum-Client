@@ -70,12 +70,14 @@ export const LatestConsultations = () => {
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">Latest Consultations</h1>
         <div className="flex items-center space-x-4">
-          <a
-            href="/consultation-all"
-            className="inline-block bg-gray-800 text-white px-4 py-2 rounded hover:bg-[#228B22] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#228B22]"
-          >
-            View All
-          </a>
+        {officeUser?.isAdmin && (
+            <a
+              href="/consultation-all"
+              className="inline-block bg-gray-800 text-white px-4 py-2 rounded hover:bg-[#228B22] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#228B22]"
+            >
+              View All
+            </a>
+          )}
           <select
             value={statusFilter}
             onChange={handleStatusFilterChange}
@@ -86,6 +88,7 @@ export const LatestConsultations = () => {
             <option value="Review">Review</option>
             <option value="Attempted">Attempted</option>
             <option value="Contacted">Contacted</option>
+            <option value="Delete">Delete</option>
           </select>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { SiteNavBar } from "../homepage/siteNavBar.jsx";
 import { ClientTestimonials } from "../homepage/ClientTestimonials.jsx";
 import { ConsultationForm } from "../consultation/ConsultationForm.jsx";
 
-import general_img from '/src/assets/services/ED/ED.svg';
+import general_img from '/src/assets/SVGs/ED.svg';
 
 export const ErectileDysfunction = () => {
   return (

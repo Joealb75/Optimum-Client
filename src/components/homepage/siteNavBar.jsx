@@ -1,9 +1,28 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect} from "react";
+import { getAllConsultations } from "../../data-services/consultation_data.js";
+import { useCurrentUser } from "../../TSQ_hooks/useCurrentUser.js";
 
 export const SiteNavBar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const dropdownRef = useRef(null);
+
+  const { currentUser } = useCurrentUser();
+  const [newConsultationsCount, setNewConsultationsCount] = useState(0);
+
+  useEffect(() => {
+    if (currentUser) {
+      getAllConsultations()
+        .then((consultations) => {
+          const newCount = consultations.filter(
+            (consultation) =>
+              consultation.assigned_to_user === currentUser.id &&
+              consultation.status === "New"
+          ).length;
+          setNewConsultationsCount(newCount);
+        })
+    }
+  }, [currentUser]);
 
   const handleMouseEnter = () => {
     setIsServicesOpen(true);
@@ -74,12 +93,17 @@ export const SiteNavBar = () => {
             )}
           </div>
           {isUserLoggedIn && (
-            <a
-              href="/office-dashboard"
-              className="text-white hover:text-[#B87333]"
-            >
-              Dashboard
-            </a>
+          <a
+          href="/office-dashboard"
+          className="text-white hover:text-[#B87333] flex items-center"
+        >
+          Dashboard
+          {newConsultationsCount > 0 && (
+            <span className="ml-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-green-600 rounded-full">
+              {newConsultationsCount}
+            </span>
+          )}
+        </a>
           )}
         </div>
       </div>

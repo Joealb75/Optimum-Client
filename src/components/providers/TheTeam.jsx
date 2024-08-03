@@ -32,10 +32,10 @@ export const MeetTheTeam = () => {
 
   return (
     <section className="py-8">
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-extrabold text-gray-900">
+      <div className="lg:text-left mb-8">
+        <h2 className="text-3xl font-extrabold text-gray-900">
           Meet Your Team
-        </h1>
+        </h2>
       </div>
 
       <div className="overflow-x-auto">

@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { SiteNavBar } from "../homepage/siteNavBar.jsx";
 
@@ -7,7 +6,6 @@ export const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const existDialog = useRef();
-  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -22,7 +20,7 @@ export const Login = () => {
       .then((authInfo) => {
         if (authInfo.valid) {
           localStorage.setItem("Optimum_User", JSON.stringify(authInfo));
-          navigate("/");
+          window.location.href = "/office-dashboard"; // Perform a hard reload
         } else {
           existDialog.current.showModal();
         }

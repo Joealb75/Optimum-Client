@@ -5,7 +5,7 @@ export const ComeVisitUs_Map_Consult_half = () => {
     return (
         <>
         {/* Come Visit Us Section */}
-        <section className="py-4">
+        <section>
           <div className="flex flex-col lg:flex-row">
             <div className="lg:w-1/2 lg:pr-4 mb-4 lg:mb-0 bg-gray-100 p-4 rounded-lg">
               <div className="text-left">
