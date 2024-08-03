@@ -33,6 +33,8 @@ export const ArticleCard = ({ article }) => {
         fetchTags();
     }, [article.tags]);
 
+    const shortContent = `${article.article_content.substring(0, 75)}...`;
+
     return (
         <div className="mb-8">
             <a href={`/articles/${article.id}`} target="_blank" className="block hover:bg-gray-100 p-4 rounded-lg">
@@ -49,7 +51,7 @@ export const ArticleCard = ({ article }) => {
                                 ))}
                             </div>
                         </h2>
-                        <p className="mt-2 text-gray-700">{article.article_content.substring(0, 75)}...</p>
+                        <p className="mt-2 text-gray-700" dangerouslySetInnerHTML={{ __html: shortContent }} />
                         {user && (
                             <p className="mt-2 text-gray-500">
                                 Writer: {user.first_name} {user.last_name}

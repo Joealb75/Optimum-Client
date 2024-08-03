@@ -48,8 +48,8 @@ export const ViewArticle = () => {
                 <div className="mb-4">
                     <ArticleUserCard user={user} officeUser={officeUser} />
                 </div>
-                <div className="text-lg text-gray-700">
-                    {article.article_content}
+                <div>
+                    <div className="text-lg text-gray-700" dangerouslySetInnerHTML={{ __html: article.article_content }} />
                 </div>
             </div>
         </>

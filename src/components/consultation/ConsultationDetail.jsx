@@ -45,7 +45,7 @@ export const ConsultationDetail = () => {
       try {
         await updateConsultation(id, editableConsultation);
         setIsEditing(false);
-        navigate("/office-dashboard");
+        window.location.href = "/office-dashboard"; // Perform a hard reload;
       } catch (error) {
         console.error('Failed to update consultation:', error);
       }
@@ -255,4 +255,3 @@ export const ConsultationDetail = () => {
     </>
   );
 };
-

@@ -58,14 +58,14 @@ export function getAllOfficeUsers_noToken() {
   })
 }
 
-export function getUserByID(id) {
+export function getUserByID(userId) {
 
-    return fetchWithResponse(`users/${id}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-          }
-    })
+  return fetchWithResponse(`users/${userId}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
 }
 
 export function getOfficeUserByUserID(currentUser) {

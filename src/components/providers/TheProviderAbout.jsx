@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { getAllUsers_NoToken, getAllOfficeUsers_noToken } from "../../data-services/user_data.js";
 import { SiteNavBar } from "../homepage/siteNavBar.jsx";
 
+import backgroundImage from "/src/assets/OptHealth_PreEdit/Front7.jpg"
+
 export const TheProviderAbout = () => {
   const API_URL = "http://localhost:8000";
   const { id } = useParams();
@@ -48,27 +50,31 @@ export const TheProviderAbout = () => {
   return (
     <>
       <SiteNavBar />
-      <section className="py-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center justify-center mb-8">
-            <img
-              src={API_URL + officeUser.profileImage}
-              alt="Profile"
-              className="w-32 h-32 object-cover rounded-full"
-            />
-          </div>
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-extrabold text-gray-900">
-              {user.first_name} {user.last_name}
-            </h1>
-            <p className="text-xl text-gray-500">{officeUser.profession}</p>
-          </div>
-          <div className="prose mx-auto">
-            <p dangerouslySetInnerHTML={{ __html: officeUser.aboutMe }}></p>
-          </div>
+      <div className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <div className="absolute inset-0 bg-black opacity-20"></div>
+        <div className="relative z-10 flex items-center justify-center min-h-screen">
+          <section className="py-8">
+            <div className="max-w-4xl mx-auto bg-white bg-opacity-55 p-8 rounded-lg">
+              <div className="flex items-center justify-center mb-8">
+                <img
+                  src={API_URL + officeUser.profileImage}
+                  alt="Profile"
+                  className="w-32 h-32 object-cover rounded-full"
+                />
+              </div>
+              <div className="text-center mb-8">
+                <h1 className="text-4xl font-extrabold text-gray-900">
+                  {user.first_name} {user.last_name}
+                </h1>
+                <p className="text-xl text-gray-900">{officeUser.profession}</p>
+              </div>
+              <div className="prose mx-auto">
+                <p dangerouslySetInnerHTML={{ __html: officeUser.aboutMe }}></p>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
     </>
   );
 };
-
