@@ -34,12 +34,13 @@ export const TestosteroneReplacement = () => {
             At Optimum Men's Health, we are committed to helping you achieve optimal health and well-being through personalized and effective testosterone replacement therapy.
           </p>
 
-          <div>
-            <ClientTestimonials />
-          </div>
-        
-          <div className="py-4">
-            <ConsultationForm />
+          <div className="flex flex-col lg:flex-row gap-4 mt-8">
+            <div className="lg:w-2/4">
+              <ClientTestimonials />
+            </div>
+            <div className="lg:w-2/4">
+              <ConsultationForm />
+            </div>
           </div>
         </div>
       </div>

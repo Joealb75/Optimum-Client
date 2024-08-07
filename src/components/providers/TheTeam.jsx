@@ -33,8 +33,8 @@ export const MeetTheTeam = () => {
   return (
     <section className="py-8">
       <div className="lg:text-left mb-8">
-        <h2 className="text-3xl font-extrabold text-gray-900">
-          Meet Your Team
+        <h2 className="text-3xl font-bold text-gray-900">
+          MEET YOUR TEAM
         </h2>
       </div>
 

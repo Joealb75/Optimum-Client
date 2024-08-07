@@ -25,7 +25,7 @@ export const LatestArticleHome = () => {
   return (
     <>
         <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">Our Latest Article</h2>
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900">OUR LATEST ARTICLE</h2>
         {latestArticle ? (
             <ArticleCard article={latestArticle} />
         ) : (

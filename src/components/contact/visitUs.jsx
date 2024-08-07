@@ -10,7 +10,7 @@ export const ComeVisitUs_Map_Consult_half = () => {
             <div className="lg:w-1/2 lg:pr-4 mb-4 lg:mb-0 bg-gray-100 p-4 rounded-lg">
               <div className="text-left">
                 <h2 className="text-2xl font-extrabold text-gray-900 mb-2">
-                  Come Visit Us
+                  COME VISIT US
                 </h2>
                 <p className="text-sm text-gray-700 flex items-center mb-1">
                   <FaMapMarkerAlt className="mr-2 text-gray-600" />
@@ -37,7 +37,7 @@ export const ComeVisitUs_Map_Consult_half = () => {
             </div>
 
             <div className="lg:w-1/2 bg-gray-900 text-white p-4 rounded-lg">
-              <h3 className="text-xl font-extrabold mb-2">Business Hours</h3>
+              <h3 className="text-xl font-extrabold mb-2">BUSINESS HOURS</h3>
               <p className="text-sm mb-1">Monday: Closed</p>
               <p className="text-sm mb-1">Tuesday: 7 AM - 6 PM</p>
               <p className="text-sm mb-1">Wednesday: 7 AM - 6 PM</p>

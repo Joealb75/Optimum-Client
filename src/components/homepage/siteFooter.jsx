@@ -6,20 +6,20 @@ export const SiteFooter = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <h2 className="text-2xl font-bold">Optimum Mens Health</h2>
+            <h2 className="text-2xl font-bold">OPTIMUM MENS HEALTH</h2>
             <p className="mt-2 text-gray-400">
               Empowering men to achieve their ideal lifestyle through personalized medical care.
             </p>
           </div>
           <div className="flex space-x-6">
             <a href="/" className="text-gray-400 hover:text-white">
-              Home
+              HOME
             </a>
             <a href="/about-us" className="text-gray-400 hover:text-white">
-              Contact
+              ABOUT US
             </a>
             <a href="/articles" className="text-gray-400 hover:text-white">
-              Articles
+              ARTICLES
             </a>
           </div>
         </div>

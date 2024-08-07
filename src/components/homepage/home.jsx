@@ -42,7 +42,7 @@ export const HomePage = () => {
             <div className="text-center lg:text-left">
               <div className="bg-white bg-opacity-75 p-8 rounded-lg">
                 <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">
-                  Our Mission
+                  OUR MISSION
                 </h2>
                 <p className="mt-4 text-lg text-gray-700">
                   At <strong>Optimum Men's Health</strong>, our mission is to empower men to
@@ -56,7 +56,7 @@ export const HomePage = () => {
                     href="/about-us"
                     className="inline-block bg-gray-800 text-white px-6 py-3 rounded hover:bg-[#228B22] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#228B22]"
                   >
-                    About Us
+                    ABOUT US
                   </a>
                 </div>
               </div>

@@ -111,7 +111,7 @@ export const ConsultationForm = () => {
                     />
                   </div>
                   <div className="w-1/2 pl-2">
-                    <label className="block text-gray-700 mb-2">Email Address</label>
+                    <label className="block text-gray-700 mb-2">Email </label>
                     <input
                       type="email"
                       name="email"
